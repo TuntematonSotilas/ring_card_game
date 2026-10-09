@@ -1,7 +1,7 @@
 # Lore & setting
 
 > The source material and how it maps onto game content (factions, characters, artifacts, campaign).
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Source material
 
@@ -20,15 +20,15 @@
 
 | Faction | Members | Play style (draft) |
 |---------|---------|--------------------|
+> **Decision (2026-10-09):** 4 playable factions at launch. Giants and Gibichungs are not playable factions in v1.0: their characters are **Neutral** cards and campaign opponents (candidates for a later expansion).
+
+| Faction | Members | Play style (draft) |
+|---------|---------|--------------------|
 | **Gods (Æsir)** | Wotan, Fricka, Donner, Froh, Freia, Loge | Control, contracts/pacts, powerful but bound by law |
 | **Nibelungs** | Alberich, Mime, Nibelung dwarves | Gold economy, forging artifacts, swarm |
-| **Giants** | Fasolt, Fafner (dragon form) | Few, huge, slow units |
 | **Wälsungs & Heroes** | Siegmund, Sieglinde, Siegfried | Aggression, growing units, weapon synergies |
 | **Valkyries** | Brünnhilde, the 8 sisters | Resurrecting fallen units, flying |
-| **Gibichungs** | Gunther, Gutrune, Hagen | Deception, potions, stealing cards |
-| *Neutral* | Rhinemaidens, Norns, Erda, Woodbird | Fate / foresight, utility |
-
-> **Open question:** 4 or 6 playable factions at launch? Fewer factions = better balance with ~120 cards.
+| *Neutral* | Rhinemaidens, Norns, Erda, Woodbird · Giants (Fasolt, Fafner) · Gibichungs (Gunther, Gutrune, Hagen) | Utility, fate / foresight, big Giant units, Gibichung deception |
 
 ## Key artifacts (card candidates)
 
@@ -44,4 +44,4 @@
 
 Epic, tragic, mythic. Visual and textual tone takes the opera seriously (no parody). Card flavour texts can quote or paraphrase the libretto (public domain; use our own English translation or a public-domain one).
 
-> **Open question:** Use original German names everywhere (Wotan, Brünnhilde) or Anglicised forms? Proposal: German names, English UI text.
+> **Decision (2026-10-09):** Original German names in every language (Wotan, Brünnhilde, Nothung, Götterdämmerung…). Only UI and rules text are translated.

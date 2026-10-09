@@ -1,11 +1,14 @@
 # Testing
 
 > Test strategy and tooling.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Framework
 
-> **Open question:** [GUT](https://github.com/bitwes/Gut) or [gdUnit4](https://github.com/MikeSchulze/gdUnit4)? Both support Godot 4 and headless CLI runs. gdUnit4 has richer assertions/mocking and a VS Code extension; GUT is simpler and long-established. Pick one and record it in an ADR.
+> **Decision (2026-10-09):** [gdUnit4](https://github.com/MikeSchulze/gdUnit4) — richer assertions and mocking, VS Code integration, headless CLI runner. See [ADR-0004](../adr/0004-gdunit4.md).
+
+- Installed as an addon in `game/addons/gdUnit4/` (version compatible with Godot 4.7.2, pinned).
+- Test files: `tests/**/test_*.gd`, classes extending `GdUnitTestSuite`.
 
 ## Test pyramid
 
@@ -30,11 +33,17 @@
 
 ## Running headless
 
+gdUnit4 ships a command-line runner in its addon folder (`runtest.sh` / `runtest.cmd`), which uses the Godot binary given by the `GODOT_BIN` environment variable:
+
 ```sh
-godot --headless --path game/ -s <test-runner-script> ...
+# from game/
+export GODOT_BIN=/path/to/godot-4.7.2
+./addons/gdUnit4/runtest.sh -a res://tests
 ```
 
-(Exact command depends on the chosen framework — document it here once picked.)
+Check the exact options against the gdUnit4 version installed, and update this section with the final command. The runner writes JUnit-style XML reports that CI can publish.
+
+Threaded AI ([05-ai-opponent](05-ai-opponent.md#threading)) is tested in **synchronous mode**, so tests stay deterministic.
 
 ## Manual test checklist (release)
 
@@ -44,4 +53,4 @@ godot --headless --path game/ -s <test-runner-script> ...
 - [ ] Kill app mid-match / mid-save → profile intact
 - [ ] Rotate / background / resume
 - [ ] Back button on every screen
-- [ ] Switch language to French → no text overflow
+- [ ] Switch language to each of DE, ES, FR → no text overflow, no missing key

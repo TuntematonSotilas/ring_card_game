@@ -1,13 +1,13 @@
 # Build & release
 
 > Producing Android builds, signing, publishing on Google Play, and CI.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Local setup
 
 | Tool | Notes |
 |------|-------|
-| Godot 4.x (pinned version) | Editor + matching **export templates** |
+| Godot 4.7.2 | Editor + matching **export templates** |
 | JDK 17 | Required by the Android build tools |
 | Android SDK | Platform-tools, build-tools, platform matching Godot's target API; set path in *Editor Settings → Export → Android* |
 | Debug keystore | Generated once per machine (`keytool`) for debug builds |
@@ -42,13 +42,14 @@ Follow the official guide: *Exporting for Android* in the Godot docs for the pin
 
 ```mermaid
 flowchart LR
-    push[Push / PR] --> lint[Lint gdscript]
-    lint --> tests[Headless tests]
+    push[Push / PR] --> lint[gdformat check + gdlint]
+    lint --> cards[Regenerate cards from cards/*.md<br/>fail on diff]
+    cards --> tests[gdUnit4 headless tests]
     tests --> debug[Export debug APK<br/>artifact]
     tag[Tag vX.Y.Z] --> release[Export signed AAB] --> play[Upload to Play<br/>internal testing track]
 ```
 
-- Use a Docker image or action that provides headless Godot + export templates for the pinned version.
+- Use a Docker image or action that provides headless Godot **4.7.2** + matching export templates.
 - Cache the `.godot/imported` folder to speed up imports.
 
 ## Release tracks
@@ -58,7 +59,7 @@ Internal testing → Closed testing (friends/playtesters) → Open testing → P
 ## Store requirements checklist
 
 - [ ] App icon (adaptive), feature graphic, screenshots (phone)
-- [ ] Short / full description (EN, FR)
+- [ ] Short / full description and screenshots (EN, DE, ES, FR)
 - [ ] Privacy policy URL (even with no data collection)
 - [ ] Data safety form (no data collected)
 - [ ] Content rating questionnaire (target PEGI 12)

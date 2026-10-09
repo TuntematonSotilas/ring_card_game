@@ -1,13 +1,13 @@
 # AI opponent
 
 > How the computer opponent chooses its moves. Supports [functional/05-game-modes.md](../functional/05-game-modes.md).
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Requirements
 
 - Plays only legal moves (uses `Match.get_legal_actions()`).
 - **Does not cheat**: no access to the human's hand or deck order (works on a state where hidden information is masked/randomised).
-- Decides within **≤ 1 s** per action on a mid-range phone; runs off the main thread or spread across frames so the UI never freezes.
+- Decides within **≤ 1 s** per action on a mid-range phone; runs on a worker thread so the UI never freezes ([Threading](#threading)).
 - Difficulty is tunable; campaign bosses can have personalities.
 
 ## Interface
@@ -59,4 +59,16 @@ Unit value ≈ `attack + health` + keyword bonuses. Weights live in `AIProfile` 
 
 ## Threading
 
-> **Open question:** Use `WorkerThreadPool` for the search (state must be fully copied — the core has no Nodes, so this is safe) vs. time-sliced search on the main thread. Start with time slicing; move to threads if needed.
+> **Decision (2026-10-09):** The AI search runs on a worker thread from the start (`WorkerThreadPool`). See [ADR-0003](../adr/0003-ai-on-worker-thread.md).
+
+Rules that make this safe:
+
+1. The main thread gives the AI a **deep copy** of the `GameState` (`duplicate_state()`), with hidden information masked. The AI never touches the live `Match`.
+2. The copy is owned by the worker thread only; nothing else reads or writes it.
+3. `CardData` / `AIProfile` resources are shared but **read-only** at runtime.
+4. The AI returns only an `Action`. The result is handed back to the main thread (`call_deferred`), which applies it with `Match.apply()` — the live state is only ever mutated on the main thread.
+5. No Node, signal emission to the scene tree, or autoload access from inside the AI code.
+6. The task can be cancelled (flag checked in the search loop) if the player quits the duel.
+7. A time budget (e.g. 800 ms) stops the search and returns the best action found so far.
+
+For debugging and tests, the AI can also run **synchronously** on the calling thread (same code, no `WorkerThreadPool`).

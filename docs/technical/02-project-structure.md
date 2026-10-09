@@ -1,21 +1,24 @@
 # Project structure
 
 > Folder layout of the repository and the Godot project, plus naming conventions.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Repository
 
 ```
 ring_card_game/
 ├── docs/                  # This documentation
+├── cards/                 # Card source of truth: one Markdown table per faction (gods.md, nibelungs.md…)
 ├── game/                  # Godot project root (project.godot lives here)
-├── tools/                 # Scripts: card import/export, balance sheets, CI helpers
+├── tools/                 # Scripts: Markdown → .tres card converter, CI helpers
 ├── .github/workflows/     # CI
 ├── README.md
 └── LICENSE
 ```
 
-> **Open question:** Godot project at repo root or in `game/`? A subfolder keeps docs/tools out of the Godot import and export.
+> **Decision (2026-10-09):** The Godot project lives in `game/`, so docs, card sources and tools stay out of the Godot import and export.
+
+Card authoring flow: `cards/*.md` → `tools/` converter → `game/data/cards/**/*.tres` ([03-data-model](03-data-model.md#card-authoring-pipeline)).
 
 ## Godot project (`res://`)
 
@@ -32,7 +35,7 @@ res://
 │   └── rules/                  # RulesValidator, keyword handlers
 ├── ai/                         # AIController, evaluators, difficulty profiles
 ├── data/
-│   ├── cards/                  # One .tres per card: <faction>/<card_id>.tres
+│   ├── cards/                  # GENERATED from cards/*.md — one .tres per card: <faction>/<card_id>.tres
 │   ├── decks/                  # Starter & campaign decks (.tres)
 │   ├── leaders/
 │   └── campaign/               # Chapter & duel definitions

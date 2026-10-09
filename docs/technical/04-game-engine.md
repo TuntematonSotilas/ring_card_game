@@ -1,7 +1,7 @@
 # Game engine
 
 > The rules engine: state, turn flow, actions, effect resolution. Implements [functional/03-game-rules.md](../functional/03-game-rules.md).
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Responsibilities
 
@@ -43,7 +43,7 @@ stateDiagram-v2
     Main --> TurnEnd: EndTurnAction
     TurnEnd --> TurnStart: switch active player
     Main --> GameOver: a leader reaches 0
-    TurnStart --> GameOver: fatigue kills
+    TurnStart --> GameOver: Götterdämmerung damage kills
     GameOver --> [*]
 ```
 

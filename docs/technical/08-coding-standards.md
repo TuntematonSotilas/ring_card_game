@@ -1,12 +1,12 @@
 # Coding standards
 
 > GDScript conventions for the project. Base: the official [GDScript style guide](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html).
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Static typing — mandatory
 
 ```gdscript
-var life: int = 30
+var life: int = 20
 var hand: Array[CardInstance] = []
 func deal_damage(target: CardInstance, amount: int) -> void:
 ```
@@ -61,4 +61,10 @@ Enable in Project Settings → `debug/gdscript/warnings`:
 - Commit messages: imperative, short (`Add Guard keyword handler`).
 - Commit `.tscn`/`.tres` as text; `.godot/` folder is ignored.
 
-> **Open question:** Use a GDScript linter/formatter (e.g. `gdtoolkit`: `gdlint` / `gdformat`) in CI? Check compatibility with the pinned Godot 4 version.
+## Linting & formatting
+
+> **Decision (2026-10-09):** `gdtoolkit` (`gdlint` + `gdformat`) runs in CI; a PR fails on lint errors or unformatted files.
+
+- Install: `pip install "gdtoolkit==4.*"` — pin the exact version in CI and check it parses Godot 4.7 syntax.
+- Run locally before pushing: `gdformat game/ tools/` then `gdlint game/ tools/`.
+- Lint config in `gdlintrc` at the repo root; exclude `game/addons/` (third-party code such as gdUnit4).

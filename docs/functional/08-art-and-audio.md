@@ -1,9 +1,11 @@
 # Art & audio
 
 > Visual and sound direction, and rights constraints on assets.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Art direction
+
+Tools and export specs: [tools/art-tools.md](../tools/art-tools.md).
 
 > **Open question:** Choose one direction and produce a mood board.
 
@@ -35,7 +37,7 @@ Frame varies by type (unit / spell / artifact) and rarity (gem colour). The Ring
 ### Music
 
 - Wagner's scores are public domain, **but recordings are not**: performances are protected by performers' and producers' rights. Use only:
-  - our own arrangements / MIDI-based renditions, or
+  - our own arrangements of the public-domain scores (written as MIDI, then rendered to audio — see [audio tools](../tools/audio-tools.md)), or
   - recordings explicitly licensed for reuse (e.g. CC0 / public-domain recordings, to be verified individually).
 - Use **leitmotifs** as short stingers: Rhinegold motif when gaining Gold, Valhalla motif for Gods, Ride motif for Valkyries, Sword motif for Nothung, curse motif when the Ring hurts its holder.
 - Background loops per board / chapter.
@@ -47,7 +49,7 @@ Frame varies by type (unit / spell / artifact) and rarity (gem colour). The Ring
 
 ## Asset rights checklist
 
-- [ ] All artwork either produced for the project or under a licence compatible with commercial distribution.
+- [ ] All artwork hand-drawn for the project by the author — no AI-generated images, no public-domain placeholders left ([artwork policy](../tools/art-tools.md#artwork-policy)).
 - [ ] Every audio file has a documented source + licence (keep a `CREDITS.md`).
 - [ ] Fonts licensed for embedding in apps (e.g. SIL OFL).
 - [ ] Libretto quotes: German original is public domain; translations must be public domain or our own.

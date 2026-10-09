@@ -1,7 +1,7 @@
 # Progression
 
 > How the player grows their collection and what keeps them playing — all offline.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Principles
 
@@ -30,7 +30,7 @@
 - Spent in the **Forge**: craft a specific card (Common 40, Rare 100, Epic 400, Legendary 1600 — draft values).
 - Duplicate extra copies above the deck limit are automatically converted to Hoard.
 
-> **Open question:** Card packs (random) or direct crafting only? Direct crafting is fairer and simpler offline.
+> **Decision (2026-10-09):** Direct crafting only — no random card packs.
 
 ## Achievements (examples)
 
@@ -42,4 +42,4 @@
 
 - Card backs, board skins (Rhine depths, Valhalla, Nibelheim, Gibichung hall), Leader portraits.
 
-> **Open question:** Do cosmetics tie into monetisation (see [01-vision](01-vision.md#scope))?
+> **Decision (2026-10-09):** Cosmetics are not sold — the game is entirely free ([01-vision](01-vision.md#scope)). They are unlocked through achievements, campaign progress or Hoard.

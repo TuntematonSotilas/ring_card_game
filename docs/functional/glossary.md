@@ -1,7 +1,7 @@
 # Glossary
 
 > Shared vocabulary for game terms (used in docs, code and UI) and lore terms.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Game terms
 
@@ -20,7 +20,7 @@
 | **Mulligan** | Redrawing part of the opening hand |
 | **Keyword** | Short named ability (Guard, Charge…) |
 | **Trigger** | Ability that fires on an event (On play, On death…) |
-| **Fatigue** | Damage taken when drawing from an empty deck |
+| **Götterdämmerung** | End-game clock: from turn 10, each Leader takes increasing damage at the start of its turn |
 | **Leitmotif** | Synergy tag linking related cards |
 | **Curse** | Drawback attached to the Ring and cursed cards |
 

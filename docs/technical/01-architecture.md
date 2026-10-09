@@ -1,19 +1,19 @@
 # Architecture
 
 > High-level structure of the Godot project and the rules that keep it maintainable.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Stack
 
 | Concern | Choice |
 |---------|--------|
-| Engine | Godot 4.x — see [ADR-0001](../adr/0001-godot-gdscript-android.md) |
+| Engine | **Godot 4.7.2** — see [ADR-0001](../adr/0001-godot-gdscript-android.md) |
 | Language | GDScript, static typing mandatory ([08-coding-standards](08-coding-standards.md)) |
 | Renderer | Mobile (Vulkan) with Compatibility (OpenGL ES 3) fallback for older devices |
 | Target | Android, arm64-v8a (+ armeabi-v7a if needed) |
 | Network | None (offline) |
 
-> **Open question:** Pin the exact Godot version (latest 4.x stable at project start) and record it in ADR-0001.
+> **Decision (2026-10-09):** Godot version pinned to **4.7.2** (editor, export templates and CI). Any upgrade goes through a new ADR.
 
 ## Core principle: rules engine ≠ presentation
 

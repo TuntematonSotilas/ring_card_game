@@ -1,7 +1,7 @@
 # UI implementation
 
 > How screens and interactions from [functional/07-ui-ux.md](../functional/07-ui-ux.md) are built in Godot.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Display settings (`project.godot`)
 
@@ -54,10 +54,10 @@ sequenceDiagram
 
 ## Localisation
 
-- `localization/strings.csv` (keys + `en`, `fr` columns), imported as Godot translations.
+- `localization/strings.csv` (keys + `en`, `de`, `es`, `fr` columns; `en` is the source language), imported as Godot translations.
 - All visible text via `tr("KEY")`; card texts via keys built from the card ID.
 - Rules text with numbers uses `tr(...).format({...})`.
-- Test long-text languages (French) for card text overflow; card text uses auto-shrinking `Label`/`RichTextLabel`.
+- Test long-text languages (German, then French and Spanish) for card text overflow; card text uses auto-shrinking `Label`/`RichTextLabel`.
 
 ## Performance targets
 

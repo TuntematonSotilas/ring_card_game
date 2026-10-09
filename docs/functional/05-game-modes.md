@@ -1,7 +1,7 @@
 # Game modes
 
 > Every way the player can play, and how modes connect.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Overview
 
@@ -22,7 +22,7 @@
 
 Four chapters, each with 5–8 duels following the opera's story.
 
-- Each duel has a **fixed opponent** (character + preconstructed deck) and optionally **special rules** (e.g. "Fafner's lair: the enemy Leader starts with 50 Life").
+- Each duel has a **fixed opponent** (character + preconstructed deck) and optionally **special rules** (e.g. "Fafner's lair: the enemy Leader starts with 35 Life").
 - Story is told between duels with illustrated text panels (no voice acting in v1.0).
 - Rewards: new cards, new Leaders, decks.
 - The player can switch to their own deck or a chapter-provided deck.
@@ -35,7 +35,7 @@ flowchart LR
     G --> E[Epilogue<br/>Ring returns to the Rhine]
 ```
 
-> **Open question:** Linear chapters, or a node map with optional side duels (e.g. Mime's riddle game)?
+> **Decision (2026-10-09):** Linear campaign in v1.0 — duels follow the story order. A node map with optional side duels (e.g. Mime's riddle game) is a post-launch idea.
 
 ## Quick match
 

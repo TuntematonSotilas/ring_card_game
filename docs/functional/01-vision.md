@@ -1,7 +1,7 @@
 # Vision
 
 > What the game is, who it is for, and what is in or out of scope.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Elevator pitch
 
@@ -11,7 +11,7 @@ A 1v1 collectible card game for Android in which the player relives Wagner's *Ri
 
 1. **The curse of the Ring** — power always has a price. Strong cards and the Ring itself carry drawbacks; greed is a valid but dangerous strategy.
 2. **Leitmotifs** — cards and characters recur and combine; playing related cards (same motif) builds up effects, echoing Wagner's musical themes.
-3. **Short, deep duels** — a match fits in 5–10 minutes on a phone, but decisions stay meaningful.
+3. **Short, deep duels** — a match fits in 5–7 minutes on a phone (see [match length](03-game-rules.md#target-match-length)), but decisions stay meaningful.
 4. **Offline and fair** — no connection required, no pay-to-win; everything is earnable by playing.
 
 ## Target audience
@@ -38,19 +38,19 @@ A 1v1 collectible card game for Android in which the player relives Wagner's *Ri
 - Quick match vs AI with difficulty levels
 - Deck builder and card collection
 - ~120 cards across 4–6 factions
-- English + French localisation
+- Localisation: English (source language), German, Spanish, French
 
 ### Out of scope (v1.0)
 
 - Online multiplayer / PvP
 - Accounts, cloud backend, leaderboards
 - iOS / desktop builds
-- Real-money purchases
+- Real-money purchases and ads (the game is free)
 
-> **Open question:** Monetisation model — paid app, free with optional cosmetic IAP, or fully free? (Impacts [06-progression](06-progression.md).)
+> **Decision (2026-10-09):** The game is **entirely free**: no price, no in-app purchases, no ads. Everything (cards, cosmetics) is earned by playing ([06-progression](06-progression.md)).
 
 ## Success criteria
 
 - A full match is playable end-to-end against the AI with no rule bugs.
-- Average match length 5–10 min.
+- Average match length 5–7 min (8–10 turns per player).
 - Runs at 60 fps on a mid-range Android phone (target device TBD).

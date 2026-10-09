@@ -1,7 +1,7 @@
 # Cards
 
 > Card anatomy, types, keywords, rarities and deckbuilding rules. Card list lives in data files (see [technical/03-data-model.md](../technical/03-data-model.md)).
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Card anatomy
 
@@ -56,7 +56,7 @@
 | **Invisible** | Cannot be targeted until it attacks (Tarnhelm) |
 | **Fated** | Effect triggers when the Norns' prophecy condition is met |
 
-> **Open question:** Keep the keyword list ≤ 10 for v1.0 so rules text stays short on a phone screen.
+> **Decision (2026-10-09):** At most **10 keywords** in v1.0, so rules text stays short on a phone screen.
 
 ## Rarities
 
@@ -74,7 +74,7 @@
 - Copy limits per rarity as above.
 - Starter decks provided for each faction (see [06-progression](06-progression.md)).
 
-> **Open question:** Allow dual-faction decks (e.g. Leader + one ally faction)?
+> **Decision (2026-10-09):** No dual-faction decks in v1.0 — one faction + Neutral only.
 
 ## Card set for v1.0 (target)
 

@@ -1,7 +1,7 @@
 # UI / UX
 
 > Screens, navigation and interaction design for an Android phone.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## Platform constraints
 
@@ -10,7 +10,7 @@
 - Minimum touch target: 48 dp.
 - Android back button must always do something sensible (go back / open pause menu).
 
-> **Open question:** Portrait or landscape for the duel screen? Portrait fits mobile habits (Marvel Snap); landscape gives a wider board (Hearthstone).
+> **Decision (2026-10-09):** Portrait orientation for the whole game, duel screen included.
 
 ## Screen flow
 
@@ -40,7 +40,7 @@ flowchart TD
 | Chapter map | Chapter nodes, progress, rewards preview |
 | Deck select | Deck list, Leader portrait, validity indicator |
 | Mulligan | Opening hand, tap to mark cards, confirm |
-| **Duel** | Enemy Leader + Life (top), enemy board, own board, own hand (bottom fan), Gold counter, end-turn button, Leader ability button, graveyard/deck counters |
+| **Duel** | Turn counter + Götterdämmerung countdown (from turn 7), enemy Leader + Life (top), enemy board, own board, own hand (bottom fan), Gold counter, end-turn button, Leader ability button, graveyard/deck counters |
 | Results | Win/lose, rewards, continue |
 | Collection / Deck builder | Card grid, filters, deck list panel, mana curve |
 | Settings | Audio volumes, language, animation speed, reset progress |
@@ -49,11 +49,11 @@ flowchart TD
 
 ```
 ┌──────────────────────────────┐
-│ [Enemy Leader ♥30]  deck 22  │
+│ [Enemy Leader ♥20]  deck 22  │
 │ ▢ ▢ ▢ ▢ ▢ ▢   enemy board    │
 │ ─────────── artifacts ────── │
 │ ▢ ▢ ▢ ▢ ▢ ▢   your board     │
-│ [Your Leader ♥30] [Ability]  │
+│ [Your Leader ♥20] [Ability]  │
 │ Gold ●●●●○○        [END TURN]│
 │   ╭──╮╭──╮╭──╮╭──╮╭──╮       │
 │   hand (fanned, scrollable)  │

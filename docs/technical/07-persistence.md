@@ -1,7 +1,7 @@
 # Persistence
 
 > What is saved on the device, in which format, and how saves evolve across versions.
-> Status: Draft · Last updated: 2026-10-08
+> Status: Draft · Last updated: 2026-10-09
 
 ## What is saved
 
@@ -11,7 +11,7 @@
 | Decks | `user://profile.json` (section `decks`) | On deck save |
 | Campaign progress | `user://profile.json` (section `campaign`) | After each campaign duel |
 | Settings | `user://settings.cfg` (`ConfigFile`) | On change |
-| Match in progress (optional) | `user://current_match.json` (seed + action list) | After each action |
+| Match in progress (post-launch) | `user://current_match.json` (seed + action list) | After each action |
 
 On Android `user://` maps to the app's private internal storage.
 
@@ -49,7 +49,7 @@ On Android `user://` maps to the app's private internal storage.
 
 Because the engine is deterministic, a match is saved as **seed + decks + list of actions** and replayed on resume. This also serves as the format for bug reports.
 
-> **Open question:** Support resume in v1.0 or post-launch? Android can kill the app at any time when backgrounded.
+> **Decision (2026-10-09):** Resume is **post-launch**. In v1.0 an interrupted match is lost (counted neither as a win nor a loss). The deterministic engine keeps the door open: the replay format above is still used for bug reports.
 
 ## Backup
 
